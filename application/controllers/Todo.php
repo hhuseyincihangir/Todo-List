@@ -13,13 +13,15 @@ class Todo extends CI_Controller
         parent::__construct();
 		$this->load->model("Todo_Model","todo_model");
 	}
-	public function bolme($a,$b)
-	{
-		return $a/$b;
-	}
     public function index()
     {
-    	$items = $this->todo_model->get_all();
+		$items = $this->todo_model->get_all();
+		foreach($items as $item)
+		{
+			$difference = strtotime($item->finishDate)-strtotime(date("Y-m-d h:m:s"));
+			$remainingTime=((int)($difference/60/60))." hours";
+			$item->remainingTime=$remainingTime;
+		}
     	$viewData =array(
     		"todos" => $items
 		);

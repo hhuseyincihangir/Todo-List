@@ -6,7 +6,6 @@
  * @modify date 2018-09-20 13:47:08
  * @desc [Todo_Model.php]
 */
-
 class Todo_Model extends CI_Model
 {
 	public $tableName = "todos";

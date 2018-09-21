@@ -1,4 +1,12 @@
-
+<?php 
+/**
+ * @author [Hasan Hüseyin CİHANGİR]
+ * @email [hashusfb@gmail.com]
+ * @create date 2018-09-21 14:11:12
+ * @modify date 2018-09-21 14:11:12
+ * @desc [todo_list.php]
+*/
+?>
 <!DOCTYPE html>
 <html lang="tr">
 	<head>
@@ -54,7 +62,8 @@
 						<th class="text-center">Start</th>
 						<th class="text-center">Status</th>
 						<th class="text-center">Finish</th>
-						<th class="text-center">Actions</th>                 
+						<th class="text-center">Remaining Time</th>   						              
+						<th class="text-center">Actions</th>   
 					</thead>
 					<tbody>
 					<?php
@@ -76,6 +85,9 @@
 								<?php echo $todo->finishDate?>
 							</td>
 							<td class="text-center" style="width:100px">
+							<?php echo $todo->remainingTime?>
+							</td>
+							<td class="text-center" style="width:100px">
 								<a href="<?php echo base_url("todo/delete/$todo->id")?>" class="btn btn-danger">DELETE</a>
 							</td>
 						</tr>
@@ -93,8 +105,10 @@
 	$(function() {
 		$('input[name="startDate"]').daterangepicker({
 			timePicker: true,
+			showDropdowns: true,
 			singleDatePicker: true,
 			timePicker24Hour: true,
+			timePickerSeconds: true,
 			startDate: moment().startOf('min'),
 			locale: {
 				format: 'YYYY-MM-DD hh:mm:ss'
@@ -104,9 +118,11 @@
 	$(function() {
 		$('input[name="finishDate"]').daterangepicker({
 			timePicker: true,
+			showDropdowns: true,
 			singleDatePicker: true,
+			timePickerSeconds: true,
 			timePicker24Hour: true,
-			startDate: moment().startOf('min').add(2, 'day'),
+			startDate: moment().startOf('min').add(1, 'day'),
 			locale: {
 				format: 'YYYY-MM-DD hh:mm:ss'
 			}

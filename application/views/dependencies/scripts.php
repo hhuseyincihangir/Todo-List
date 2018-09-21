@@ -7,10 +7,10 @@
  * @desc [scripts.php]
 */
 ?>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.min.js")?>" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo base_url("assets/js/custom.js")?>" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo base_url("assets/js/switchery.js")?>" charset="UTF-8"></script>
+<script type="text/javascript" src="<?=base_url("assets/js/jquery.min.js")?>" charset="UTF-8"></script>
+<script type="text/javascript" src="<?=base_url("assets/js/moment.min.js")?>" charset="UTF-8"></script>
+<script type="text/javascript" src="<?=base_url("assets/js/daterangepicker.min.js")?>" charset="UTF-8"></script>
+<script type="text/javascript" src="<?=base_url("assets/js/bootstrap.min.js")?>" charset="UTF-8"></script>
+<script type="text/javascript" src="<?=base_url("assets/js/custom.js")?>" charset="UTF-8"></script>
+<script type="text/javascript" src="<?=base_url("assets/js/switchery.js")?>" charset="UTF-8"></script>
 
