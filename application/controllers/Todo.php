@@ -18,9 +18,19 @@ class Todo extends CI_Controller
 		$items = $this->todo_model->get_all();
 		foreach($items as $item)
 		{
-			$difference = strtotime($item->finishDate)-strtotime(date("Y-m-d h:m:s"));
-			$remainingTime=((int)($difference/60/60))." hours";
-			$item->remainingTime=$remainingTime;
+			$realDifference=strtotime($item->finishDate)-strtotime($item->startDate);
+			$relativeDifference=strtotime($item->finishDate)-strtotime(date("Y-m-d H:i:s"));
+			$relativeRemainingTime = gmdate("m H i s", $relativeDifference);
+			$item->remainingTime=explode(' ', $relativeRemainingTime);
+			$mapDifference=map($relativeDifference,0,$realDifference,100,0);
+			if ($mapDifference>=0 and $mapDifference<100)
+			{
+				$item->progressValue=round($mapDifference);
+			}
+			else{
+				$item->remainingTime=0;
+				$item->progressValue=100;
+			}
 		}
     	$viewData =array(
     		"todos" => $items

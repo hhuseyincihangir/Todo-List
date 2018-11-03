@@ -23,6 +23,7 @@
 		<div class="container">
 		<h3 class="text-center">Todo List</h3>
 		<div class="row">
+			<h3 class="text-center" style="z-index:5;position:fixed;bottom:0;right:0;background-color:black;color:white;padding:5px" id="saat"></h3>
 			<div class="col-md-12">
 					<div class="row">
 						<form action="<?php echo base_url("todo/insert");?>" method="post">
@@ -67,8 +68,37 @@
 					</thead>
 					<tbody>
 					<?php
+						// echo "Time : ".date("Y-m-d H:i:s");						
 						foreach ($todos as $todo)
-						{?>
+						{
+							$progressValue=$todo->progressValue;
+							if ($progressValue>=100)
+							{
+								$progressValue=100;
+								if($todo->isCompleted=='0')
+								{
+									$progressClass="progress-bar-danger";
+								}
+								else{
+									$progressClass="progress-bar-success";
+								}
+							}
+							else if ($progressValue<33 and $progressValue>=0)
+							{
+								$progressClass="progress-bar-success";
+							}
+							else if ($progressValue>=33 and $progressValue<66)
+							{
+								$progressClass="progress-bar-info";
+							}
+							else if ($progressValue<100 and $progressValue>=66)
+							{
+								$progressClass="progress-bar-warning";
+							}
+							else{
+								$progressClass="progress-bar";
+							}
+							?>
 						<tr>
 							<td class="text-left">
 								<?php echo $todo->explanation;?>
@@ -77,6 +107,12 @@
 								<?php echo $todo->startDate?>
 							</td>
 							<td class="text-center" style="width:100px">
+								%<?=$progressValue?>
+								<div class="progress" style="height:20px">
+									<div class="progress-bar progress-bar-striped <?=$progressClass?>" role="progressbar"
+									 aria-valuemin="0" aria-valuemax="100" style="color:black;width:<?=$progressValue?>%">
+									</div>
+								</div>
 								<input type="checkbox" class="js-switch"
 									data-url="<?php echo base_url("todo/iscompletedsetter/".$todo->id);?>"
 									<?php echo ($todo->isCompleted) ? "checked": "";?>/>
@@ -85,7 +121,9 @@
 								<?php echo $todo->finishDate?>
 							</td>
 							<td class="text-center" style="width:100px">
-							<?php echo $todo->remainingTime?>
+							<?php
+								echo $todo->remainingTime[0]." month<br>".$todo->remainingTime[1]." hours<br>".$todo->remainingTime[2]." min<br>".$todo->remainingTime[3]." seconds<br>";								
+							?>
 							</td>
 							<td class="text-center" style="width:100px">
 								<a href="<?php echo base_url("todo/delete/$todo->id")?>" class="btn btn-danger">DELETE</a>
@@ -102,32 +140,43 @@
 		$this->load->view("dependencies/scripts.php");
 	?>
 	<script>
-	$(function() {
-		$('input[name="startDate"]').daterangepicker({
-			timePicker: true,
-			showDropdowns: true,
-			singleDatePicker: true,
-			timePicker24Hour: true,
-			timePickerSeconds: true,
-			startDate: moment().startOf('min'),
-			locale: {
-				format: 'YYYY-MM-DD hh:mm:ss'
-			}
+		$(function() {
+			$('input[name="startDate"]').daterangepicker({
+				timePicker24Hour: true,			
+				timePicker: true,
+				autoApply: true,
+				showDropdowns: true,
+				singleDatePicker: true,
+				startDate: moment().startOf('min'),
+				locale: {
+					format: 'YYYY-MM-DD HH:mm:ss'
+				}
+			});
 		});
-	});
-	$(function() {
-		$('input[name="finishDate"]').daterangepicker({
-			timePicker: true,
-			showDropdowns: true,
-			singleDatePicker: true,
-			timePickerSeconds: true,
-			timePicker24Hour: true,
-			startDate: moment().startOf('min').add(1, 'day'),
-			locale: {
-				format: 'YYYY-MM-DD hh:mm:ss'
-			}
+		$(function() {
+			$('input[name="finishDate"]').daterangepicker({
+				timePicker24Hour: true,
+				timePicker: true,
+				autoApply: true,
+				showDropdowns: true,
+				singleDatePicker: true,
+				startDate: moment().startOf('min').add(5, 'hour'),
+				locale: {
+					format: 'YYYY-MM-DD HH:mm:ss'
+				}
+			});
 		});
-	});
+		setInterval(function()
+		{
+			var tarih = new Date();
+			var yil=tarih.getFullYear();
+			var ay=tarih.getMonth();
+			var gun=tarih.getDay();
+			var saat=tarih.getHours();
+			var dakika=tarih.getMinutes();
+			var saniye=tarih.getSeconds();	
+			document.getElementById("saat").innerHTML = gun+"/"+ay+"/"+yil+"<br>"+saat+":"+dakika+":"+saniye;
+		},1000);	
 	</script>
 	</body>
 </html>
