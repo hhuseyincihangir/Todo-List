@@ -33,12 +33,12 @@ class Todo extends CI_Controller
 			}
 		}
     	$viewData =array(
-    		"todos" => $items
+			"todos" => $items
 		);
         $this->load->view("todo_list",$viewData);
     }
     public function insert()
-    {
+    {		
 		$todo_title 	= $this->input->post("todo_title");
 		$startDate		= $this->input->post("startDate");
 		$finishDate		= $this->input->post("finishDate");
@@ -65,7 +65,6 @@ class Todo extends CI_Controller
     }
     public function delete($id)
     {
-        //echo $this->uri->segment(3);
         $this->todo_model->delete($id);
         redirect(base_url());        
     }
