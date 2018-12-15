@@ -1,9 +1,9 @@
 <?php
 /**
  * @author [Hasan Hüseyin CİHANGİR]
- * @email [hashusfb@gmail.com]
+ * @email [hhuseyincihangir@gmail.com]
  * @create date 2018-09-20 13:46:45
- * @modify date 2018-09-20 13:46:45
+ * @modify date 2018-12-15 11:30:57
  * @desc [Todo.php]
 */
 class Todo extends CI_Controller
@@ -14,7 +14,7 @@ class Todo extends CI_Controller
 		$this->load->model("Todo_Model","todo_model");
 	}
     public function index()
-    {
+	{
 		$items = $this->todo_model->get_all();
 		foreach($items as $item)
 		{

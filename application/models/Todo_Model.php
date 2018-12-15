@@ -1,9 +1,9 @@
 <?php
 /**
  * @author [Hasan Hüseyin CİHANGİR]
- * @email [hashusfb@gmail.com]
+ * @email [hhuseyincihangir@gmail.com]
  * @create date 2018-09-20 13:47:08
- * @modify date 2018-09-20 13:47:08
+ * @modify date 2018-12-15 11:31:03
  * @desc [Todo_Model.php]
 */
 class Todo_Model extends CI_Model
