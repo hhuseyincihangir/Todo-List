@@ -3,7 +3,13 @@
   {
     $fromRange = $fromHigh - $fromLow;
     $toRange = $toHigh - $toLow;
-    $scaleFactor = $toRange / $fromRange;
+    if ($fromRange==0)
+    {
+      $scaleFactor=0;
+    }
+    else{
+      $scaleFactor = $toRange / $fromRange;
+    }
 
     $tmpValue = $value - $fromLow;
 
