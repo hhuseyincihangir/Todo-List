@@ -1,91 +1,43 @@
 # Todo-List
 
-Basit, çok kullanıcılı dosya barındırma sistemi.
+Web-based, simple todo list application.
 
-# Temel Özellikler
-
-* Çoklu sürükle bırak.
-* Çoklu dosya yükleme.
-* İlkel kullanıcı erişim izinleri.
-
-# Gereksinimler
+# Requirements
 
 + PHP 7
 + Mysql
 
-# Kurulum
-
-### 1. Dosyaların Kopyalanması
-Kaynak kodunu indirdikten sonra apache serverınızın **www/** veya **htdocs/** isimli klasörünün içine kopyalayınız.
-
-### 2. Veritabanın İçeri Aktarılması
-Mysql veritabanı yönetim sisteminiz (phpmyadmin, HeidiSQL, MySQL Workbench, vb.) ile **dosyam_db** ismiyle yeni bir veritabanı oluşturmalısınız (Veritabanı ismini değiştirmek istiyorsanız **application/config/database.php** dosyasındaki **$db['default']** değişkeninin **"database"** indisinin değerini de değiştirmeniz gerekli).
-
-### 3. Veritabanı Ayarları
-Veritabanı ayarları için **application/config/** klasörü içindeki **database.php** dosyasından, kendi veritabanı bilgilerinize göre aşağıdaki gibi doldurmalısınız.
-
-```php
-----------------------------------------------------------
-'hostname' => 'localhost', // Veritabanı sunucusu adresi
-'username' => 'root', // Veritabanı kullanıcı adı
-'password' => 'rootroot', // Veritabanı kullanıcı şifresi
-'database' => 'dosyam_db', // Veritabanı ismi
-----------------------------------------------------------
-```
-### 4. URL ayarları
-**Dosyam**'ın çalışması için **application/config/config.php** dosyasından,
-
-```php
-$config['base_url'] = 'https://localhost/Dosyam/';
-```
-değişkeninin metin değerini, proje dizinin yüklediğiniz **"host"** üzerindeki tam adresi ile değiştirmelisiniz.
-
-### 5. Giriş ve Mutlu Son :smile:
-Son olarak giriş ekranında,
-
-- **Kullanıcı Adı** : hashusci
-- **Şifre** : admin_hashusci
-
-değerlerini girebilirsiniz.
-
-# Kullanılan Teknolojiler
+# Technologies
 
 ## Back-End
 + PHP
-+ Codeigniter 3.1.9
++ Codeigniter 3.1.8
 + Mysql
+
 ## Front-End
 + HTML
-+ JavaScript
-+ Jquery 1.10.2
 + CSS
-+ Bootstrap 3.3.7
-+ DropzoneJS
-+ Font Awesome 4.7.0
-# Ekran Görüntüleri
-
-  ## Giriş
-  
-  ![dosyam_giris](https://user-images.githubusercontent.com/15706050/52592936-be868f00-2e58-11e9-99e6-5c6e451f4fec.PNG)
-  
-  ## Dosya Yönetimi
-  
-  ![dosyam_yonetim](https://user-images.githubusercontent.com/15706050/52593037-04435780-2e59-11e9-88e2-62bb0da45def.PNG)
-
++ JavaScript
++ Jquery v3.2.1
++ Bootstrap v3.3.7
++ MomentJS v2.18.1
++ Datepicker Bootstrap v1.7.1
++ Switchery v0.8.1
++ DateRangePicker v3.0.3
 
 # LİSANS HAKKINDA
 
 Copyright (C) 2018 Hasan Hüseyin CİHANGİR
 
-Bu program özgür yazılımdır: 
-Özgür Yazılım Vakfı tarafından yayımlanan GNU Genel Kamu Lisansı’nın sürüm 3 ya da (isteğinize bağlı olarak)
-daha sonraki sürümlerinin hükümleri altında yeniden dağıtabilir ve/veya değiştirebilirsiniz.
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-Bu program, yararlı olması umuduyla dağıtılmış olup, programın BİR TEMİNATI YOKTUR; TİCARETİNİN YAPILABİLİRLİĞİNE
-VE ÖZEL BİR AMAÇ İÇİN UYGUNLUĞUNA dair bir teminat da vermez.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-Ayrıntılar için GNU Genel Kamu Lisansı’na göz atınız.
-http://www.gnu.org/licenses/gpl-3.0.html
-
-Bu programla birlikte GNU Genel Kamu Lisansı’nın bir kopyasını elde etmiş olmanız gerekir. 
-Eğer elinize ulaşmadıysa <http://www.gnu.org/licenses/> adresine bakınız.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
