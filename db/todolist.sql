@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 20 Eyl 2018, 20:16:50
+-- Üretim Zamanı: 03 Nis 2019, 16:01:18
 -- Sunucu sürümü: 10.1.34-MariaDB
 -- PHP Sürümü: 7.2.7
 
@@ -37,13 +37,6 @@ CREATE TABLE `todos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Tablo döküm verisi `todos`
---
-
-INSERT INTO `todos` (`id`, `explanation`, `isCompleted`, `startDate`, `finishDate`) VALUES
-(90, 'Have Breakfast', 0, '2018-09-20 09:15:49', '2018-09-22 09:15:49');
-
---
 -- Dökümü yapılmış tablolar için indeksler
 --
 
@@ -61,7 +54,7 @@ ALTER TABLE `todos`
 -- Tablo için AUTO_INCREMENT değeri `todos`
 --
 ALTER TABLE `todos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

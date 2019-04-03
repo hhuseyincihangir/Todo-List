@@ -3,12 +3,12 @@
  * @author [Hasan Hüseyin CİHANGİR]
  * @email [hhuseyincihangir@gmail.com]
  * @create date 2018-09-21 14:11:12
- * @modify date 2018-12-15 16:36:20
+ * @modify date 2019-04-03 15:55:20
  * @desc [todo_list.php]
 */
 ?>
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 	<head>
 		<title>Todo List</title>
 		<meta charset="utf-8" />
@@ -26,7 +26,7 @@
 			<h3 class="text-center" style="z-index:5;position:fixed;bottom:0;right:0;background-color:black;color:white;padding:5px" id="saat"></h3>
 			<div class="col-md-12">
 					<div class="row">
-						<form action="<?php echo base_url("todo/insert");?>" method="post">
+						<form onsubmit="return false" method="post">
 							<div class="col-md-7">
 								<label for="todo_title">Explanation</label>
 								<div class="form-group">
@@ -48,7 +48,7 @@
 							<div class="col-md-1">
 								<label for="finishDate">Actions</label>
 								<div class="form-group">
-									<button type="submit" class="btn btn-primary">ADD</button>
+									<button type="submit" class="btn btn-primary" onclick="addTodo()">ADD</button>
 								</div>
 							</div>
 						</form>
@@ -140,6 +140,8 @@
 		$this->load->view("dependencies/scripts.php");
 	?>
 	<script>
+		var base_url = "<?=base_url()?>";
+
 		$(function() {
 			$('input[name="startDate"]').daterangepicker({
 				timePicker24Hour: true,			
